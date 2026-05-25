@@ -3,7 +3,6 @@
 
 #define V 4 // Number of vertices
 
-// Function to find vertex with minimum key value
 int minKey(int key[], int visited[]) {
     int min = INT_MAX, min_index;
 
@@ -16,7 +15,6 @@ int minKey(int key[], int visited[]) {
     return min_index;
 }
 
-// Function to print MST
 void printMST(int parent[], int graph[V][V]) {
     int totalCost = 0;
     printf("Edge \tWeight\n");
@@ -29,19 +27,18 @@ void printMST(int parent[], int graph[V][V]) {
     printf("Total cost of MST = %d\n", totalCost);
 }
 
-// Prim's Algorithm
 void primMST(int graph[V][V]) {
-    int parent[V]; // Stores MST
-    int key[V]; // Minimum weights
-    int visited[V]; // Visited vertices
+    int parent[V]; 
+    int key[V]; 
+    int visited[V]; 
 
     for (int i = 0; i < V; i++) {
         key[i] = INT_MAX;
         visited[i] = 0;
     }
 
-    key[0] = 0; // Start from vertex 0
-    parent[0] = -1; // Root of MST
+    key[0] = 0; 
+    parent[0] = -1; 
 
     for (int count = 0; count < V - 1; count++) {
         int u = minKey(key, visited);
